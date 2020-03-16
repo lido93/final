@@ -24,7 +24,7 @@ get "/" do
     view "places"
 end
 
-get "/place/:id" do
+get "/places/:id" do
     @place = places_table.where(id: params[:id]).to_a[0]
     @comments = comments_table.where(place_id: @place[:id])
     # @users_table = users_table

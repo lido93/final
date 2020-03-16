@@ -1,0 +1,18 @@
+    <div class="row">
+    <div class="col-sm-9">
+       <h2>
+            <i class="far fa-calendar-alt"></i>
+            <%= @place[:dates] %>
+        </h2>
+        <h1><%= @place[:location] %></h1>
+        <p><%= @place[:description] %></p>
+    </div>
+
+            <div class="col-sm-3">
+        <h3>Place to See</h3>
+        <p><%= @place[:see] %></p>
+        <h3>Place to Eat</h3>
+        <p><%= @place[:eat] %></p>
+    
+    </div>
+    </div>
