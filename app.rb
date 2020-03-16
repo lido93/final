@@ -30,3 +30,16 @@ get "/places/:id" do
     # @users_table = users_table
     view "place"
 end
+
+get "/places/:id/comments/new" do
+    @place = places_table.where(id: params[:id]).to_a[0]
+    view "new_comment"
+end
+
+get "/places/:id/comments/create" do
+    puts params
+    @place = places_table.where(id: params["id"]).to_a[0]
+    comments_table.insert(place_id: params["id"],
+                       comments: params["comments"])
+    view "create_comment"
+end

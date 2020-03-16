@@ -6,6 +6,16 @@
         </h2>
         <h1><%= @place[:location] %></h1>
         <p><%= @place[:description] %></p>
+         <div class="mt-5">
+            <a href="/places/<%= @place[:id] %>/comments/new" class="btn btn-primary">Leave your comments</a>
+        </div> 
+        <% for comment in @comments %>
+                    <div>
+                    <%= comment[:comments] %>
+                   
+                </div>
+            
+        <% end %>
     </div>
 
             <div class="col-sm-3">

@@ -1,0 +1,11 @@
+
+<h1>Comment on <%= @place[:location] %></h1>
+
+<form action="/places/<%= @place[:id] %>/comments/create">
+
+  <div class="form-group">
+    <label>Tell me what you think</label>
+    <textarea class="form-control" rows="3" name="comments"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
