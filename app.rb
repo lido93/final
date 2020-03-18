@@ -1,6 +1,7 @@
 # Set up for the application and database. DO NOT CHANGE. #############################
 require "sinatra"                                                                     #
 require "sinatra/reloader" if development?                                            #
+require "geocoder"                                                                    #
 require "sequel"                                                                      #
 require "logger"                                                                      #
 require "twilio-ruby"                                                                 #
@@ -32,6 +33,9 @@ get "/places/:id" do
     @place = places_table.where(id: params[:id]).to_a[0]
     @comments = comments_table.where(place_id: @place[:id])
     @users_table = users_table
+    @results = Geocoder.search(@place[:location])
+    lat_long = @results.first.coordinates 
+    @lat_long = "#{lat_long[0]}, #{lat_long[1]}"
     view "place"
 end
 

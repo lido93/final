@@ -1,30 +1,51 @@
-    <div class="row">
-    <div class="col-sm-9">
-       <h2>
+          <h2>
             <i class="far fa-calendar-alt"></i>
             <%= @place[:dates] %>
         </h2>
+   
+    <div class="row">
+    <div class="col-sm-4">
+
         <h1><%= @place[:location] %></h1>
         <p><%= @place[:description] %></p>
-         <div class="mt-5">
-            <a href="/places/<%= @place[:id] %>/comments/new" class="btn btn-primary">Leave your comments</a>
-        </div> 
 
-         <div class="test">
-    
-        <% for comment in @comments %>
-               
-                   <ul> <li> <%= comment[:comments] %></li> </ul> 
-            
-        <% end %>
- </div> 
-    </div>
+  
+        </div>
 
-            <div class="col-sm-3">
+
+     <div class="col-sm-4">
+         <iframe
+        width="350"
+        height="200"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
+          &q=<%= @lat_long %>&zoom=5" allowfullscreen>
+      </iframe>
+</div>
+
+            <div class="col-sm-4">
         <h3>Place to See</h3>
         <p><%= @place[:see] %></p>
         <h3>Place to Eat</h3>
         <p><%= @place[:eat] %></p>
     
     </div>
+     </div>
+         <div class="row">
+    <div class="col-sm-8">
+            <div class="mt-5">
+            <a href="/places/<%= @place[:id] %>/comments/new" class="btn btn-primary">Leave your comments</a>
+        </div>
+        <div class="card mt-5">
+            <div class="card-body">
+    
+        <% for comment in @comments %>
+                   <ul> <li> <%= comment[:comments] %></li> </ul> 
+            
+        <% end %>
+            </div>
+            </div>
+ </div> 
     </div>
+
+   
